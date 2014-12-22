@@ -1,87 +1,81 @@
 <div class="container">
 <h1>Publicaciones</h1>
 
-    <h1>Encontrados</h1>
-<% @posts.each do |post| %>
-  <% if post.tipo == 'encontrado' %>
-    <p><%= post.title %></p>
-    <p><%= post.description %></p>
-  <% end %>
-<% end %>
 
- <h1>Perdidos</h1>
-<% @posts.each do |post| %>
-  <% if post.tipo == 'perdido' %>
-    <p><%= post.title %></p>
-    <p><%= post.description %></p>
-  <% end %>
-<% end %>
+<%= link_to 'Publicar', new_post_path %>
 
-<h1>En adopcion</h1>
-<% @posts.each do |post| %>
-  <% if post.tipo == 'adopcion' %>
-    <p><%= post.title %></p>
-    <p><%= post.description %></p>
-  <% end %>
-<% end %>
+<h1>Encontrados</h1>
 
-<!-- <table>
+<table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Tipo</th>
-      <th>Picture</th>
-      <th>Descripction</th>
-      <th colspan="3"></th>
+      <th>Nombre</th>
+      <th>Descripción</th>
     </tr>
   </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-    <% if post.tipo == "perdido" %>
-    <h1>Perdidos</h1>
-      <tr> 
-        <td><%= post.title %></td>
-        <td><%= post.tipo %></td>
-        <td><img src=<%= post.picture %> alt=""></td>
-        <td><%= post.description %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% elsif post.tipo == "encontrado" %>
-      <h1>Encontrados</h1>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.tipo %></td>
-        <td><img src=<%= post.picture %> alt=""></td>
-        <td><%= post.description %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% else %>
-      <h1>En adopción</h1>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.tipo %></td>
-        <td><img src=<%= post.picture %> alt=""></td>
-        <td><%= post.description %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-
-      <% end %>
-
-    <% end %>
-  </tbody>
+<tbody>
+  <% @posts.each do |post| %>
+  <% if post.tipo == 'encontrado' %>
+  <tr>
+    <td><%= post.title %></p></td>
+    <td><%= post.description %></td>
+    <td><%= link_to 'Ver', post %></td>
+    </tr>
+  <% end %>
+<% end %>
+</tbody>
 </table>
- -->
+
+
+
+<h1>Perdidos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+<tbody>
+  <% @posts.each do |post| %>
+  <% if post.tipo == 'perdido' %>
+  <tr>
+    <td><%= post.title %></p></td>
+    <td><%= post.description %></td>
+    <td><%= link_to 'Ver', post %></td>
+    </tr>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+<h1>En adopción</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+<tbody>
+  <% @posts.each do |post| %>
+  <% if post.tipo == 'adopcion' %>
+  <tr>
+    <td><%= post.title %></p></td>
+    <td><%= post.description %></td>
+    <td><%= link_to 'Ver', post %></td>
+    </tr>
+  <% end %>
+<% end %>
+</tbody>
+</table>
+
+
 <br>
 
 
 
-<%= link_to 'New Post', new_post_path %>
 
 </div>
