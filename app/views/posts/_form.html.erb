@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :tipo %><br>
-    <%= f.text_field :tipo %>
+<%= f.select :tipo, options_for_select([['En adopcion', 'adopcion'],['Perdido', 'perdido'],['Encontrado', 'encontrado']], @post.tipo), label: 'Tipo' %>
   </div>
   <div class="field">
     <%= f.label :picture %><br>
