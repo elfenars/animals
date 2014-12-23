@@ -1,81 +1,83 @@
-<div class="container">
-<h1>Publicaciones</h1>
-
-
-<%= link_to 'Publicar', new_post_path %>
-
-<h1>Encontrados</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripción</th>
-    </tr>
-  </thead>
-<tbody>
-  <% @posts.each do |post| %>
-  <% if post.tipo == 'encontrado' %>
-  <tr>
-    <td><%= post.title %></p></td>
-    <td><%= post.description %></td>
-    <td><%= link_to 'Ver', post %></td>
-    </tr>
-  <% end %>
-<% end %>
-</tbody>
-</table>
+<div class="row">
+  <div class="col-md-12">
+   <h1>¡Nos gustan los animales!</h1>
+   <p class="lead">¿Perdiste tu mascota?, ¿Encontraste la mascota de alguien?, ¿Quieres dar un animalito en adopción?, ¿Quieres adoptar y darle amor a alguien que te va a querer siempre? ¡Este es tu lugar!</p>
+   <button type="button" class="btn btn-default"><%= link_to 'Publicar', new_post_path %></button>
+   <hr>
+ </div>
+</div>
 
 
 
-<h1>Perdidos</h1>
+<div class="row">
+  <div class="col-md-4">
+    <h2>Encontrados</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripción</th>
-    </tr>
-  </thead>
-<tbody>
+    <% @posts.each do |post| %>
+      <% if post.tipo == 'encontrado' %>
+        <div class="thumbnail">
+          <h3><%= post.title %></h3>
+        <!-- <img src="img/dogs.jpg" alt=""> -->
+          <div class="caption">
+          <p><%= post.description %></p>
+          <button type="button" class="btn btn-default"><%= link_to 'Ver', post %></button>
+          </div>
+       </div>
+      <% end %>
+
+    <% end %>
+  </div>
+  
+  <div class="col-md-4">
+    <h2>Perdidos</h2>
+
   <% @posts.each do |post| %>
   <% if post.tipo == 'perdido' %>
-  <tr>
-    <td><%= post.title %></p></td>
-    <td><%= post.description %></td>
-    <td><%= link_to 'Ver', post %></td>
-    </tr>
-  <% end %>
-<% end %>
-</tbody>
-</table>
+    <div class="thumbnail">
+      <h3><%= post.title %></h3>
+      <!-- <img src="img/dogs.jpg" alt=""> -->
+      <div class="caption">
+        <p><%= post.description %></p>
+        <button type="button" class="btn btn-default"><%= link_to 'Ver', post %></button>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
 
-<h1>En adopción</h1>
+   
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripción</th>
-    </tr>
-  </thead>
-<tbody>
-  <% @posts.each do |post| %>
-  <% if post.tipo == 'adopcion' %>
-  <tr>
-    <td><%= post.title %></p></td>
-    <td><%= post.description %></td>
-    <td><%= link_to 'Ver', post %></td>
-    </tr>
-  <% end %>
-<% end %>
-</tbody>
-</table>
+  </div>
 
+  <div class="col-md-4">  
+ <h2>En adopción</h2>
 
-<br>
-
-
-
+    <% @posts.each do |post| %>
+    <% if post.tipo == 'adopcion' %>
+      <div class="thumbnail">
+        <h3><%= post.title %></h3>
+        <!-- <img src="img/dogs.jpg" alt=""> -->
+        <div class="caption">
+          <p><%= post.description %></p>
+          <button type="button" class="btn btn-default"><%= link_to 'Ver', post %></button>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+  </div>
 
 </div>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
