@@ -17,7 +17,7 @@
       <% if post.tipo == 'encontrado' %>
         <div class="thumbnail">
           <h3><%= post.title %></h3>
-        <!-- <img src="img/dogs.jpg" alt=""> -->
+          <%= image_tag post.image_url.to_s%>
           <div class="caption">
           <p><%= post.description %></p>
           <button type="button" class="btn btn-default"><%= link_to 'Ver', post %></button>
@@ -35,7 +35,7 @@
   <% if post.tipo == 'perdido' %>
     <div class="thumbnail">
       <h3><%= post.title %></h3>
-      <!-- <img src="img/dogs.jpg" alt=""> -->
+      <%= image_tag post.image_url.to_s %>
       <div class="caption">
         <p><%= post.description %></p>
         <button type="button" class="btn btn-default"><%= link_to 'Ver', post %></button>
@@ -52,7 +52,7 @@
     <% if post.tipo == 'adopcion' %>
       <div class="thumbnail">
         <h3><%= post.title %></h3>
-        <!-- <img src="img/dogs.jpg" alt=""> -->
+        <%= image_tag post.image_url.to_s %>
         <div class="caption">
           <p><%= post.description %></p>
           <button type="button" class="btn btn-default"><%= link_to 'Ver', post %></button>

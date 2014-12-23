@@ -1,35 +1,10 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<div class="container">
+  <%= simple_form_for @post, :html => {:multipart => true} do |f| %>
+  <%= f.input :title %>
+  <%= f.input :tipo, collection: ["encontrado", "perdido", "adopcion"]  %>
+  <%= f.file_field :image %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :tipo %><br>
-<%= f.select :tipo, options_for_select([['En adopcion', 'adopcion'],['Perdido', 'perdido'],['Encontrado', 'encontrado']], @post.tipo), label: 'Tipo' %>
-  </div>
-  <div class="field">
-    <%= f.label :picture %><br>
-    <%= f.text_field :picture %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions btn btn-info">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
+</div>

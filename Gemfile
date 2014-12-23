@@ -16,5 +16,6 @@ gem 'bootstrap-sass'
 gem 'rename'
 gem 'rails_12factor'
 gem 'simple_form'
+gem 'carrierwave'
 
 

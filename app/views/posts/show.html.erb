@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Nombre:</strong>
   <%= @post.title %>
 </p>
 
@@ -10,14 +10,15 @@
   <%= @post.tipo %>
 </p>
 
+
 <p>
-  <strong>Picture:</strong>
-  <%= @post.picture %>
+  <strong>Descripcion:</strong>
+  <%= @post.description %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @post.description %>
+  <strong>Imagen:</strong>
+  <%= image_tag @post.image %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

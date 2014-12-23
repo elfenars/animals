@@ -1,11 +1,12 @@
 <h1>Editing post</h1>
 
-<%= simple_form_for @post do |f| %>
-<%= f.input :title %>
-<%= f.input :tipo, collection: ["encontrado", "perdido", "adopcion"]  %>
-<%= f.input :description %>
-<%= f.button :submit %>
-<% end %>
+<div class="container">
+
+<%= render 'form' %>
 
 <%= link_to 'Show', @post %> |
 <%= link_to 'Back', posts_path %>
+
+
+
+
