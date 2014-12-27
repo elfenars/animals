@@ -1,6 +1,7 @@
 
 <div class="container">
   <%= simple_form_for @post, :html => {:multipart => true} do |f| %>
+  <%= f.input :user_id %>
   <%= f.input :title %>
   <%= f.input :tipo, collection: ["encontrado", "perdido", "adopcion"]  %>
   <%= f.file_field :image %>
