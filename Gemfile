@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'fog'
 gem 'cloudinary'
+gem 'devise'
 
 group :production do
 	gem 'pg'
