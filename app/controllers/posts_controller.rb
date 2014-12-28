@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -14,11 +15,13 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    :authenticate_user!
     @post = Post.new
   end
 
   # GET /posts/1/edit
   def edit
+    :authenticate_user!
   end
 
   # POST /posts
@@ -54,6 +57,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    :authenticate_user!
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
