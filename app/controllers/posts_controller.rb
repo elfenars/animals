@@ -27,8 +27,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-
+    # @post = Post.new(post_params[:user_id].merge(:user_id => current_user.id))
+    @post = current_user.posts.build(post_params)
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -40,22 +40,6 @@ class PostsController < ApplicationController
     end
   end
 
-
-  # def create
-  #   @post = Post.new(post_params)
-
-  #   if @post.save
-  #     render :show
-  #     flash[:success] = "Lista creada"
-
-  #   else
-  #     render :index
-  #     flash[:error] = "Brrrrrp"
-  #   end
-  # end
-
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_params)

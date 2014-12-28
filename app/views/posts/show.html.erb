@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>usuario::</strong>
+  <strong>Usuario:</strong>
   <%= @post.user.name %>
 </p>
 
@@ -27,8 +27,13 @@
   <%= image_tag @post.image.url.to_s %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %> |
-<%= link_to 'Delete', @post, method: :delete, data: { confirm: "Seguro?"} %>
+<% if user_signed_in? and current_user.id == @post.user.id %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %> |
+  <%= link_to 'Delete', @post, method: :delete, data: { confirm: "Seguro?"} %>
+
+<% else %>
+  <%= link_to 'Back', posts_path %> 
+<% end %>
 
 </div>
