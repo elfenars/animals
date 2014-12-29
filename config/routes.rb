@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+  get 'users/show'
+
   devise_for :users
   resources :posts
 
@@ -7,6 +11,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'register', to: 'devise/registrations#new'
   end
+
+  resources :users
 
   
 

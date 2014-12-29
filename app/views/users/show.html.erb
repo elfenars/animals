@@ -1,0 +1,17 @@
+<div class="wrap">
+
+<div class="row ficha">
+  <div class="col-sm-6">
+
+    <% @user.posts.each do |post| %>
+        <div class="thumbnail">
+          <h3><%= post.title %></h3>
+          <%= image_tag post.image_url.to_s%>
+          <div class="caption">
+          <p><%= post.description %></p>
+          <%= link_to 'Ver', post, class: "btn btn-default" %>
+          </div>
+       </div>
+    <% end %>
+  </div>
+</div>

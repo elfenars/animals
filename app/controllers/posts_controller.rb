@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     # @post = Post.new(post_params[:user_id].merge(:user_id => current_user.id))
-    @post = current_user.posts.build(post_params)
+    @post = current_user.posts.new(post_params)
       if @post.save
         flash[:success] = "Esto fue un exito."
         render :show

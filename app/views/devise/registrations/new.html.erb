@@ -4,9 +4,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-  	<%= f.input :name, required: true, autofocus: true %>
-  	<%= f.input :nick, required: true %>
-    <%= f.input :email, required: true %>
+  	<%= f.input :name, required: true, autofocus: true, label: 'Nombre completo' %>
+  	<%= f.input :nick, required: true, label: 'Nickname'  %>
+    <%= f.input :email, required: true, label: 'Correo'  %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
     <%= f.input :password_confirmation, required: true %>
   </div>
