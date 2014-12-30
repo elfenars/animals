@@ -1,0 +1,12 @@
+<% @perdidos.each do |e| %>
+	<% if e.tipo == 'perdido' %>
+	<div class="thumbnail">
+          <h3><%= e.title %></h3>
+          <%= image_tag e.image_url.to_s%>
+          <div class="caption">
+          <p><%= e.description %></p>
+          <%= link_to 'Ver', e, class: "btn btn-default" %>
+          </div>
+       </div>
+	<% end %>
+<% end %>

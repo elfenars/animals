@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   resources :users
 
+  get 'encontrados' => 'posts#encontrados'
+  get 'perdidos' => 'posts#perdidos'
+  get 'adopcion' => 'posts#adopcion'
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.

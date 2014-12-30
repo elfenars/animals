@@ -24,6 +24,19 @@ class PostsController < ApplicationController
     authenticate_user!
   end
 
+  def encontrados
+    # @encontrados = Post.find_by(params[:tipo == 'encontrado'])
+    @encontrados = Post.all
+  end
+
+  def perdidos
+    @perdidos = Post.all
+  end
+
+  def adopcion
+    @adopcion = Post.all
+  end
+
   # POST /posts
   # POST /posts.json
   def create
