@@ -26,15 +26,15 @@ class PostsController < ApplicationController
 
   def encontrados
     # @encontrados = Post.find_by(params[:tipo == 'encontrado'])
-    @encontrados = Post.all
+    @encontrados = Post.where(tipo: 'encontrado')
   end
 
   def perdidos
-    @perdidos = Post.all
+    @perdidos = Post.where(tipo: 'perdido')
   end
 
   def adopcion
-    @adopcion = Post.all
+    @adopcion = Post.where(tipo: 'adopcion')
   end
 
   # POST /posts

@@ -1,5 +1,4 @@
 <% @adopcion.each do |e| %>
-	<% if e.tipo == 'adopcion' %>
 	<div class="thumbnail">
           <h3><%= e.title %></h3>
           <%= image_tag e.image_url.to_s%>
@@ -8,5 +7,4 @@
           <%= link_to 'Ver', e, class: "btn btn-default" %>
           </div>
        </div>
-	<% end %>
 <% end %>
