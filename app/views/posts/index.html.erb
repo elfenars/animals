@@ -18,7 +18,7 @@
     <h2>Encontrados</h2>
 
     <% @posts.each do |post| %>
-      <% if post.tipo == 'encontrado' %>
+      <% if post.tipo == 'encontrado' and post.status == 'Activo' %>
         <div class="thumbnail">
           <h3><%= post.title %></h3>
           <%= image_tag post.image_url.to_s%>
@@ -36,7 +36,7 @@
     <h2>Perdidos</h2>
 
   <% @posts.each do |post| %>
-  <% if post.tipo == 'perdido' %>
+  <% if post.tipo == 'perdido' and post.status == 'Activo' %>
     <div class="thumbnail">
       <h3><%= post.title %></h3>
       <%= image_tag post.image_url.to_s %>
@@ -53,7 +53,7 @@
  <h2>En adopción</h2>
 
     <% @posts.each do |post| %>
-    <% if post.tipo == 'adopcion' %>
+    <% if post.tipo == 'adopcion' and post.status == 'Activo' %>
       <div class="thumbnail">
         <h3><%= post.title %></h3>
         <%= image_tag post.image_url.to_s %>

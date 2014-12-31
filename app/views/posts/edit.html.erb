@@ -2,6 +2,14 @@
 
 <div class="container">
 
+
+
+  <%= simple_form_for @post, :html => {:multipart => true} do |f| %>
+  <%= f.input :status, collection: ['Activo', 'Cerrado'] %>
+    <%= f.button :submit %>
+  <% end %>
+
+
 <%= render 'form' %>
 
 <%= link_to 'Show', @post %> |

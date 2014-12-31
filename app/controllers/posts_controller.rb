@@ -25,7 +25,6 @@ class PostsController < ApplicationController
   end
 
   def encontrados
-    # @encontrados = Post.find_by(params[:tipo == 'encontrado'])
     @encontrados = Post.where(tipo: 'encontrado')
   end
 
@@ -40,7 +39,6 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    # @post = Post.new(post_params[:user_id].merge(:user_id => current_user.id))
     @post = current_user.posts.new(post_params)
       if @post.save
         flash[:success] = "Esto fue un exito."
@@ -79,6 +77,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :tipo, :description, :image, :user_id)
+      params.require(:post).permit(:title, :tipo, :description, :image, :status, :user_id)
     end
+
 end
