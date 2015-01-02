@@ -1,8 +1,14 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-
+  include CarrierWave::MiniMagick
   include Cloudinary::CarrierWave
+
+
+    process :resize_to_fill => [400,400]
+
+
+
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

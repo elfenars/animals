@@ -1,11 +1,16 @@
 
 <div class="container">
-  <%= simple_form_for @post, :html => {:multipart => true} do |f| %>
-  
-  <%= f.input :title %>
-  <%= f.input :tipo, collection: ["encontrado", "perdido", "adopcion"]  %>
-  <%= f.file_field :image %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
+	<div class="panel panel-default">
+		<div class="panel-body">
+  <%= simple_form_for @post, :defaults => {:required => false}, :html => {:multipart => true} do |f| %>
+  <%= f.input :title, label: 'Titulo' %>
+  <%= f.input :tipo, collection: ["encontrado", "perdido", "adopcion"], label: 'Tipo de publicación' %>
+  <%= f.label 'Imagen' %>
+  <%= f.file_field :image, class: 'btn btn-default' %>
+  <%= f.input :contact, label: 'Contacto' %>
+  <%= f.input :description, label: 'Descripcion' %>
+  <%= f.button :submit , :value => "Publicar" %>
   <% end %>
+  </div>
+  </div>
 </div>

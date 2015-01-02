@@ -5,7 +5,11 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 	attr_accessor :image
 
-	validates :user_id, presence: true
+	validates :title, presence: true
+	validates :tipo, presence: true
+	validates :image, presence: true
+	validates :contact, presence: true
+	validates :description, presence: true
 
 	mount_uploader :image, ImageUploader
 

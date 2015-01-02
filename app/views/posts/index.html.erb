@@ -3,7 +3,8 @@
   <div class="intro">
   <div class="col-md-12">
    <h1>¡Nos gustan los animales!</h1>
-   <p class="lead">¿Perdiste tu mascota? ¿Encontraste la mascota de alguien? ¿Quieres dar un animalito en adopción?, ¿Quieres adoptar y darle amor a alguien que te va a querer siempre? ¡Este es tu lugar!</p>
+   <p class="lead">¿Perdiste tu mascota? ¿Encontraste la mascota de alguien? ¿Quieres dar un animalito en adopción o quieres adoptar?</p>
+   <p class="lead"> ¡Este es tu lugar!</p>
    <%= link_to "Publicar", new_post_path, class: "btn btn-primary" %>
    <hr>
  </div>
@@ -21,7 +22,7 @@
       <% if post.tipo == 'encontrado' and post.status == 'Activo' %>
         <div class="thumbnail">
           <h3><%= post.title %></h3>
-          <%= image_tag post.image_url.to_s%>
+          <%= link_to image_tag(post.image_url.to_s), post_path(post) %>
           <div class="caption">
           <p><%= post.description %></p>
           <%= link_to 'Ver', post, class: "btn btn-default" %>
@@ -39,7 +40,7 @@
   <% if post.tipo == 'perdido' and post.status == 'Activo' %>
     <div class="thumbnail">
       <h3><%= post.title %></h3>
-      <%= image_tag post.image_url.to_s %>
+      <%= link_to image_tag(post.image_url.to_s), post_path(post) %>
       <div class="caption">
         <p><%= post.description %></p>
         <%= link_to 'Ver', post, class: "btn btn-default" %>
@@ -56,7 +57,7 @@
     <% if post.tipo == 'adopcion' and post.status == 'Activo' %>
       <div class="thumbnail">
         <h3><%= post.title %></h3>
-        <%= image_tag post.image_url.to_s %>
+        <%= link_to image_tag(post.image_url.to_s), post_path(post) %>
         <div class="caption">
           <p><%= post.description %></p>
           <%= link_to 'Ver', post, class: "btn btn-default" %>
