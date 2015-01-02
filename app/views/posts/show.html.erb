@@ -2,7 +2,7 @@
   <p id="notice"><%= notice %></p>
   <div class="panel panel-default">
     <div class="panel-body">
-      
+
       <p>
         <strong>Usuario</strong>
         <%= @post.user.name %>
@@ -16,6 +16,9 @@
         <strong>Tipo</strong>
         <%= @post.tipo %>
       </p>
+      <p>
+        <strong>Ubicación</strong>
+        <%= @post.location %>
       <p>
         <strong>Imagen</strong>
         <%= image_tag @post.image.url.to_s%>
