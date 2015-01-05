@@ -1,16 +1,27 @@
 <h1>Editing post</h1>
-
 <div class="container">
+	<div class="panel panel-default col-md-8">
+		<div class="panel-body">
 
+			<%= simple_form_for @post, :defaults => {:required => false}, :html => {:multipart => true} do |f| %>
+			<%= f.input :title, label: 'Titulo' %>
+			<div class="btn-group">
+				<%= f.input :tipo, as: :radio_buttons, collection: [["Encontrado", "encontrado"], ["Perdido", "perdido"],
+				["En Adopción", "adopcion"]] %>
+			</div>
 
+			<%= f.input :location, label: 'Ubicación' %>
+  			<%= f.label 'Imagen' %>
+  			<%= f.file_field :image, class: 'btn btn-default' %>
+  			<%= f.input :contact, label: 'Contacto' %>
+  			<%= f.input :description, label: 'Descripcion' %>
+  			<%= f.input :status, collection: ['Activo', 'Cerrado'] %>
+  			<%= f.button :submit , :value => "Publicar" %>
+  			<% end %>
+  		</div>
+  	</div>
+</div>
 
-  <%= simple_form_for @post, :html => {:multipart => true} do |f| %>
-  <%= f.input :status, collection: ['Activo', 'Cerrado'] %>
-    <%= f.button :submit %>
-  <% end %>
-
-
-<%= render 'form' %>
 
 <%= link_to 'Show', @post %> |
 <%= link_to 'Back', posts_path %>
