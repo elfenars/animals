@@ -1,44 +1,45 @@
-<div class="wrap">
+ <div class="container">
+ <div class="col-md-6 col-md-offset-3">
   <p id="notice"><%= notice %></p>
   <div class="panel panel-default">
     <div class="panel-body">
+      <h2> <div class="title"> <%= @post.title %></div></h2>
 
-      <p>
-        <strong>Usuario</strong>
-        <%= @post.user.name %>
-      </p>
 
-      <p>
-        <strong>Titulo</strong>
-        <%= @post.title %>
-      </p>
-      <p>
-        <strong>Tipo</strong>
-        <%= @post.tipo %>
-      </p>
-      <p>
-        <strong>Ubicación</strong>
-        <%= @post.location %>
-      <p>
-        <strong>Imagen</strong>
-        <%= image_tag @post.image.url.to_s%>
-      </p>
-      <p>
-        <strong>Contacto</strong>
-        <%= @post.contact %>
-      </p>
-      <p>
-        <strong>Descripcion</strong>
+        <%= image_tag @post.image.url.to_s, class: "img-responsive img-thumbnail"%> <br><br>
+      
+        <div class="panel panel-default">
+          <div class="panel-heading">Información de contacto</div>
+          <div class="panel-body">
+            <% if @post.tipo == 'perdido' %>
+              <p>Perdido</p>
+            <% elsif @post.tipo == 'encontrado'%>
+              <p>Encontrado</p>
+            <% elsif @post.tipo == 'adopcion'%>
+              <p>En Adopción</p>
+            <% end %>
+            <p><%= @post.user.name %></p>
+            <p><%= @post.location %></p>
+            <p><%= @post.contact %></p>
+          </div>
+        </div>
+      
+
+        <div class="panel panel-default">
+          <div class="panel-heading">Descripción: </div>
+          <div class="panel-body">
         <%= @post.description %>
-      </p>
+      </div>
     </div>
+  </div>
   </div>
 
   <% if user_signed_in? and current_user.id == @post.user.id %>
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Back', posts_path %> |
-  <%= link_to 'Delete', @post, method: :delete, data: { confirm: "Seguro?"} %>
+  <%= link_to 'Editar', edit_post_path(@post) %> |
+  <%= link_to 'Atrás', posts_path %> |
+  <%= link_to 'Borrar', @post, method: :delete, data: { confirm: "Seguro?"} %>
   <% else %>
-  <%= link_to 'Back', posts_path %> 
+  <%= link_to 'Atrás', posts_path %> 
   <% end %>
-</div>
+  </div>
+  </div>

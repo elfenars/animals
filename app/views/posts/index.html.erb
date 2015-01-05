@@ -22,7 +22,7 @@
       <% if post.tipo == 'encontrado' and post.status == 'Activo' %>
         <div class="thumbnail">
           <h3><%= post.title %></h3>
-          <%= link_to image_tag(post.image_url.to_s), post_path(post) %>
+          <%= link_to image_tag(post.image_url.to_s), post_path(post), class: "img-responsive img-thumbnail" %>
           <div class="caption">
           <p><%= post.description %></p>
           <%= link_to 'Ver', post, class: "btn btn-default" %>
@@ -40,7 +40,7 @@
   <% if post.tipo == 'perdido' and post.status == 'Activo' %>
     <div class="thumbnail">
       <h3><%= post.title %></h3>
-      <%= link_to image_tag(post.image_url.to_s), post_path(post) %>
+      <%= link_to image_tag(post.image_url.to_s), post_path(post), class: "img-responsive img-thumbnail" %>
       <div class="caption">
         <p><%= post.description %></p>
         <%= link_to 'Ver', post, class: "btn btn-default" %>
@@ -57,7 +57,7 @@
     <% if post.tipo == 'adopcion' and post.status == 'Activo' %>
       <div class="thumbnail">
         <h3><%= post.title %></h3>
-        <%= link_to image_tag(post.image_url.to_s), post_path(post) %>
+        <%= link_to image_tag(post.image_url.to_s), post_path(post), class: "img-responsive img-thumbnail" %>
         <div class="caption">
           <p><%= post.description %></p>
           <%= link_to 'Ver', post, class: "btn btn-default" %>
