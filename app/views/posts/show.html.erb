@@ -1,38 +1,63 @@
  <div class="container">
- <div class="col-md-6 col-md-offset-3">
   <p id="notice"><%= notice %></p>
+
   <div class="panel panel-default">
+
     <div class="panel-body">
-      <h2> <div class="title"> <%= @post.title %></div></h2>
 
-
-        <%= image_tag @post.image.url.to_s, class: "img-responsive img-thumbnail"%> <br><br>
       
-        <div class="panel panel-default">
-          <div class="panel-heading">Información de contacto</div>
-          <div class="panel-body">
-            <% if @post.tipo == 'perdido' %>
-              <p>Perdido</p>
-            <% elsif @post.tipo == 'encontrado'%>
-              <p>Encontrado</p>
-            <% elsif @post.tipo == 'adopcion'%>
-              <p>En Adopción</p>
-            <% end %>
-            <p><%= @post.user.name %></p>
-            <p><%= @post.location %></p>
-            <p><%= @post.contact %></p>
+      <div class="row">
+        <div class="col-md-8">
+          <h2>
+          <div class="title"> 
+          <% if @post.tipo == 'perdido' %>
+          <p>Perdido</p>
+          <% elsif @post.tipo == 'encontrado'%>
+          <p>Encontrado</p>
+          <% elsif @post.tipo == 'adopcion'%>
+          <p>En Adopción</p>
+          <% end %>
+        </div>
+        </h2>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag @post.image.url.to_s, class: "img-responsive img-thumbnail"%>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">Información de contacto</div>
+            <div class="panel-body">
+              <p>Nombre: <%= @post.user.name %></p>
+              <p>Ubicación: <%= @post.location %></p>
+              <p>Contacto: <%= @post.contact %></p>
+              <button class="btn btn-primary">Contáctate</button>
+            </div>
           </div>
         </div>
-      
+        <div class="col-md-4"></div>
+      </div>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">Descripción: </div>
-          <div class="panel-body">
-        <%= @post.description %>
+      <br>
+
+      <div class="row">
+        <div class="col-md-6"><div class="panel panel-default">
+            <div class="panel-heading">Descripción</div>
+              <div class="panel-body">
+                <h3> <%= @post.title %></h3>
+                <p><%= @post.description %></p>
+              </div>
+            </div>
+          </div></div>
+        <div class="col-md-6"></div>
       </div>
     </div>
   </div>
-  </div>
+
+  <!-- Action links -->
 
   <% if user_signed_in? and current_user.id == @post.user.id %>
   <%= link_to 'Editar', edit_post_path(@post) %> |
@@ -41,5 +66,6 @@
   <% else %>
   <%= link_to 'Atrás', posts_path %> 
   <% end %>
-  </div>
-  </div>
+
+
+</div>
