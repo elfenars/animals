@@ -14,12 +14,16 @@
   			<%= f.label 'Imagen' %>
   			<%= f.file_field :image, class: 'btn btn-default' %>
   			<%= f.input :contact, label: 'Contacto' %>
-  			<%= f.input :description, label: 'Descripcion' %>
-  			<%= f.input :status, collection: ['Activo', 'Cerrado'] %>
-  			<%= f.button :submit , :value => "Publicar" %>
-  			<% end %>
-  		</div>
-  	</div>
+  			<div class="btn-group">
+  				<%= f.input :animal_type, label: "Tipo de mascota", as: :radio_buttons, collection: [["Perrito", "perro"], ["Gatito", "gato"]] %>
+  			</div>
+  			<%= f.input :breed, label: 'Raza' %>
+			<%= f.input :age, label: 'Edad aproximada' %>
+			<%= f.input :description, label: 'Descripcion' %>
+			<%= f.button :submit , :value => "Publicar" %>
+			<% end %>
+		</div>
+	</div>
 </div>
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102191445) do
+ActiveRecord::Schema.define(version: 20150106135725) do
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20150102191445) do
     t.string   "status"
     t.string   "contact"
     t.string   "location"
+    t.string   "animal_type"
+    t.string   "breed"
+    t.string   "age"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"

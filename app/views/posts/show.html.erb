@@ -32,7 +32,7 @@
             <div class="panel-heading">Información de contacto</div>
             <div class="panel-body">
               <p>Nombre: <%= @post.user.name %></p>
-              <p>Ubicación: <%= @post.location %></p>
+              
               <p>Contacto: <%= @post.contact %></p>
               <button class="btn btn-primary">Contáctate</button>
             </div>
@@ -48,6 +48,10 @@
             <div class="panel-heading">Descripción</div>
               <div class="panel-body">
                 <h3> <%= @post.title %></h3>
+                <p><strong>¿Qué animalito es? </strong><%= @post.animal_type %></p>
+                <p><strong>Raza: </strong><%= @post.breed %></p>
+                <p><strong>Edad: </strong><%= @post.age %></p>
+                <p><strong>¿Dónde? </strong><%= @post.location %></p>
                 <p><%= @post.description %></p>
               </div>
             </div>

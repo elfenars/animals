@@ -5,7 +5,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    
+    @encontrados = Post.where(tipo: "encontrado").limit(3)
+    @perdidos = Post.where(tipo: "perdido").limit(3)
+    @adopcion = Post.where(tipo: "adopcion").limit(3)
   end
 
   # GET /posts/1
@@ -25,15 +28,15 @@ class PostsController < ApplicationController
   end
 
   def encontrados
-    @encontrados = Post.where(tipo: 'encontrado')
+    @encontrados = Post.where(tipo: 'encontrado').page(params[:page])
   end
 
   def perdidos
-    @perdidos = Post.where(tipo: 'perdido')
+    @perdidos = Post.where(tipo: 'perdido').page(params[:page])
   end
 
   def adopcion
-    @adopcion = Post.where(tipo: 'adopcion')
+    @adopcion = Post.where(tipo: 'adopcion').page(params[:page])
   end
 
   # POST /posts
@@ -77,7 +80,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :tipo, :description, :image, :location, :status, :contact, :user_id)
+      params.require(:post).permit(:title, :tipo, :description, :image, :location, :status, :contact, :animal_type, :age, :breed, :user_id)
     end
 
 end

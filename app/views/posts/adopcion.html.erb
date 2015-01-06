@@ -1,12 +1,15 @@
+
 <% @adopcion.each do |e| %>
 <% if e.status == 'Activo' %>
 	<div class="thumbnail">
           <h3><%= e.title %></h3>
           <%= link_to image_tag(e.image_url.to_s), post_path(e), class: "img-responsive img-thumbnail" %>
           <div class="caption">
-          <p><%= e.description %></p>
+          <p><%= truncate e.description, length: 140 %></p>
           <%= link_to 'Ver', e, class: "btn btn-default" %>
           </div>
        </div>
      <% end %>
 <% end %>
+
+<%= paginate @adopcion, :theme => 'twitter-bootstrap-3' %>

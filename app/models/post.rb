@@ -11,6 +11,8 @@ class Post < ActiveRecord::Base
 	validates :contact, presence: true
 	validates :description, presence: true
 
+	# scope :encontrados, -> { where tipo: 'encontrado' }
+
 	mount_uploader :image, ImageUploader
 
 	private
