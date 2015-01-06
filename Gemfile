@@ -19,6 +19,7 @@ gem 'devise'
 gem 'mini_magick'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'high_voltage', '~> 2.2.1'
 
 group :production do
 	gem 'pg'
