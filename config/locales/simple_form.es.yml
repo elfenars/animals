@@ -4,6 +4,6 @@ es:
     "no": 'No'
     required:
       text: 'obligatorio'
-      mark: '*'
+      mark: ''
     error_notification:
-      default_message: "Porfavor revisa los siguientes errores:"
+      default_message: "Por favor revisa los siguientes errores:"
