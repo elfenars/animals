@@ -19,6 +19,7 @@ gem 'cloudinary'
 
 # Auth
 gem 'devise'
+gem 'devise-i18n'
 
 # Assets
 gem 'sass-rails', '~> 4.0.3'
