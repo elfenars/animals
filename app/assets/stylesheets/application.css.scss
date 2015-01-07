@@ -90,14 +90,24 @@ h3 {
  }
 h1.logo a {
     display: block;
-    background: url(http://res.cloudinary.com/dqyonjr6e/image/upload/v1420487940/logo_lew4z5.png) no-repeat;
-    width: 139px;
-    height: 155px;
+    background: url(http://res.cloudinary.com/dqyonjr6e/image/upload/v1420592569/logo_2x_gu1jun.png) no-repeat;
+    width: 109px;
+    height: 50px;
     cursor: pointer;
     margin: 0 auto;
     text-indent: -9999px;
 }
 .navbar-inverse { 
   background:#000;
+}
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+    h1.logo a {
+        background: url(http://res.cloudinary.com/dqyonjr6e/image/upload/v1420592569/logo_2x_gu1jun.png) no-repeat;
+        -webkit-background-size: 109px;
+        background-size: 109px;
+
+    }
 }
 
