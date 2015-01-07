@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     
-    @encontrados = Post.where(tipo: "encontrado").limit(3)
-    @perdidos = Post.where(tipo: "perdido").limit(3)
-    @adopcion = Post.where(tipo: "adopcion").limit(3)
+    @encontrados = Post.where(tipo: "encontrado").order(created_at: :desc).limit(3)
+    @perdidos = Post.where(tipo: "perdido").order(created_at: :desc).limit(3)
+    @adopcion = Post.where(tipo: "adopcion").order(created_at: :desc).limit(3)
   end
 
   # GET /posts/1
@@ -28,15 +28,15 @@ class PostsController < ApplicationController
   end
 
   def encontrados
-    @encontrados = Post.where(tipo: 'encontrado').page(params[:page])
+    @encontrados = Post.where(tipo: 'encontrado').page(params[:page]).order(created_at: :desc)
   end
 
   def perdidos
-    @perdidos = Post.where(tipo: 'perdido').page(params[:page])
+    @perdidos = Post.where(tipo: 'perdido').page(params[:page]).order(created_at: :desc)
   end
 
   def adopcion
-    @adopcion = Post.where(tipo: 'adopcion').page(params[:page])
+    @adopcion = Post.where(tipo: 'adopcion').page(params[:page]).order(created_at: :desc)
   end
 
   # POST /posts
