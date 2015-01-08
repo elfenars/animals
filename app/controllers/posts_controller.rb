@@ -3,9 +3,9 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @found = Post.where(tipo: "encontrado").order(created_at: :desc).limit(3)
-    @lost = Post.where(tipo: "perdido").order(created_at: :desc).limit(3)
-    @adoption = Post.where(tipo: "adopcion").order(created_at: :desc).limit(3)
+    @found    = Post.found.order(created_at: :desc).limit(3)
+    @lost     = Post.lost.order(created_at: :desc).limit(3)
+    @adoption = Post.adoption.order(created_at: :desc).limit(3)
   end
 
   def show
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :tipo, :description, :image, :location, :status, :contact, :animal_type, :age, :breed, :user_id)
+      params.require(:post).permit(:title, :state, :description, :image, :location, :status, :contact, :animal_type, :age, :breed, :user_id)
     end
 
 end

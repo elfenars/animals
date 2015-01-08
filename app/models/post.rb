@@ -4,14 +4,14 @@ class Post < ActiveRecord::Base
 	belongs_to :user
 
 	before_validation :set_defaults, on: :create
-	validates :title, :tipo, :contact, :description, presence: true
+	validates :title, :state, :contact, :description, presence: true
 	validates :image, presence: true if Rails.env.production?
 
 	mount_uploader :image, ImageUploader
 
-	scope :found, 		-> { where(tipo: 'encontrado') }
-	scope :lost,			-> { where(tipo: 'perdido') }
-	scope :adoption,	-> { where(tipo: 'adopcion') }
+	scope :found, 		-> { where(state: 'found') }
+	scope :lost,			-> { where(state: 'lost') }
+	scope :adoption,	-> { where(state: 'adoption') }
 
 	def active?
 		self.status == 'active'
