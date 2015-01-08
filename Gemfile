@@ -22,6 +22,7 @@ gem 'devise'
 gem 'devise-i18n'
 
 # Assets
+gem 'haml-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
