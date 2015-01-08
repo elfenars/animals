@@ -1,6 +1,9 @@
 # Custom (Put non-traditional new files here)
 config/initializers/globals.rb
 config/cloudinary.yml
+.tags
+.gemtags
+.tags_sorted_by_file
 
 #-----------------------------
 # Bundler
