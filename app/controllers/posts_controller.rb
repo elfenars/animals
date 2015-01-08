@@ -1,34 +1,33 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @encontrados = Post.where(tipo: "encontrado").order(created_at: :desc).limit(3)
-    @perdidos = Post.where(tipo: "perdido").order(created_at: :desc).limit(3)
-    @adopcion = Post.where(tipo: "adopcion").order(created_at: :desc).limit(3)
+    @found = Post.where(tipo: "encontrado").order(created_at: :desc).limit(3)
+    @lost = Post.where(tipo: "perdido").order(created_at: :desc).limit(3)
+    @adoption = Post.where(tipo: "adopcion").order(created_at: :desc).limit(3)
   end
 
   def show
   end
 
   def new
-    authenticate_user!
     @post = Post.new
   end
 
   def edit
-    authenticate_user!
   end
 
   def encontrados
-    @encontrados = Post.where(tipo: 'encontrado').page(params[:page]).order(created_at: :desc)
+    @encontrados = Post.found.page(params[:page]).order(created_at: :desc)
   end
 
   def perdidos
-    @perdidos = Post.where(tipo: 'perdido').page(params[:page]).order(created_at: :desc)
+    @perdidos = Post.lost.page(params[:page]).order(created_at: :desc)
   end
 
   def adopcion
-    @adopcion = Post.where(tipo: 'adopcion').page(params[:page]).order(created_at: :desc)
+    @adopcion = Post.adoption.page(params[:page]).order(created_at: :desc)
   end
 
   def create
@@ -37,7 +36,7 @@ class PostsController < ApplicationController
         flash[:success] = "Esto fue un exito."
         render :show
       else
-        flash[:error] = "Paa, drama."
+        flash[:error] = @post.errors.messages
         render :new
     end
   end
