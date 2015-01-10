@@ -5,7 +5,7 @@
   	<table class="table table-hover">
   		<thead>
   			<tr>
-  				<th><p>Titulo</p></th>
+  				<th><p>Título</p></th>
 				<th><p>Descripción</p></th>
 				<th><p>Acciones</p></th>
 				<th></th>
@@ -19,7 +19,7 @@
 					<td><%= post.description %></td>
 					<td><%= link_to "Editar", edit_post_path(post) %></td>
 					<td><%= link_to "Ver", post_path(post) %></td>
-					<td><%= link_to "Borrar", post, method: :delete, data: {confirm: "Seguro?"} %></td>
+					<td><%= link_to "Borrar", post, method: :delete, data: {confirm: "¿Seguro?"} %></td>
 				</tr>
 			</tbody>
 			<% end %>
