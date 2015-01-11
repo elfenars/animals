@@ -2,11 +2,17 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  include Cloudinary::CarrierWave
+  if Rails.env.production?
+  	include Cloudinary::CarrierWave
+	end
 
+  process :resize_to_fill => [400,400]
 
-    process :resize_to_fill => [400,400]
-
+  if Rails.env.development? || Rails.env.test?
+    CarrierWave.configure do |config|
+      config.storage = :file
+    end
+  end
 
 
 
