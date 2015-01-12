@@ -20,6 +20,7 @@ config/cloudinary.yml
 .sass-cache
 /config/config.yml
 /config/database.yml
+/config/cloudinary.yml
 /coverage.data
 /coverage/
 /db/*.javadb/
