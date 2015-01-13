@@ -17,9 +17,12 @@
 			<tr>
 				<th><%= post.title %></th>
 					<td><%= post.description %></td>
-					<td><%= link_to "Editar", edit_post_path(post) %></td>
-					<td><%= link_to "Ver", post_path(post) %></td>
-					<td><%= link_to "Borrar", post, method: :delete, data: {confirm: "¿Seguro?"} %></td>
+					<% if post.user.id == current_user.id %>
+						<td><%= link_to "Editar", edit_post_path(post) %></td>
+						<td><%= link_to "Ver", post_path(post) %></td>
+						<td><%= link_to "Borrar", post, method: :delete, data: {confirm: "¿Seguro?"} %></td>
+						<% else %>
+						<% end %>
 				</tr>
 			</tbody>
 			<% end %>

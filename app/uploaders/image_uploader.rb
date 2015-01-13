@@ -1,18 +1,19 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
-  if Rails.env.production?
-  	include Cloudinary::CarrierWave
-	end
+  include Cloudinary::CarrierWave
+ #  include CarrierWave::MiniMagick
+ #  if Rails.env.production?
+ #  	include Cloudinary::CarrierWave
+	# end
 
-  process :resize_to_fill => [400,400]
+ #  process :resize_to_fill => [400,400]
 
-  if Rails.env.development? || Rails.env.test?
-    CarrierWave.configure do |config|
-      config.storage = :file
-    end
-  end
+ #  if Rails.env.development? || Rails.env.test?
+ #    CarrierWave.configure do |config|
+ #      config.storage = :file
+ #    end
+ #  end
 
 
 
