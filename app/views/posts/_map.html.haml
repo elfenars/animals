@@ -3,31 +3,19 @@
 :javascript
   $(document).ready(function(){
     $("#map").css("height", '400')
+    L.mapbox.accessToken = 'pk.eyJ1IjoicGV0ZXJldGVzIiwiYSI6ImEyYUxxRTAifQ.ZK97j8BA0SXOaQ16Mri2oA';
 
-    L.mapbox.accessToken = 'pk.eyJ1IjoiZWxmZW5hcnMiLCJhIjoiMDF0YWlnTSJ9.YdLNTRDq9kBXFbxvQrkxaw';
-    var map = L.mapbox.map('map', 'elfenars.kn4ob5e9')
-      .setView(["#{@post.latitude}", "#{@post.longitude}"], 15);
+    var latlng = ["#{@post.latitude}", "#{@post.longitude}"]
+    //var circleMarker = L.circleMarker(latlng).setRadius(180);
 
-    // var geojson = getGeocode("#{@post.id}");
-    var geojson = {
-      "type": "Feature",
-      "geometry": {
-      "type": "Point",
-      "coordinates": [
-      -33.4464435,
-      -70.59737729999999
-      ]
-      },
-      "properties": {
-      "title": "Encontrado",
-      "description": "Holanda 3019, Ñuñoa, Santiago",
-      "marker-color": "#00607d",
-      "marker-symbol": "circle",
-      "marker-size": "medium"
-      }
-      }
+    var map = L.mapbox.map('map', 'peteretes.kokmenp1')
+      .setView(latlng, 15);
 
-    L.geoJson(geojson,{
-      pointToLayer: L.mapbox.marker.style,
-    });
+    L.marker(latlng, {
+      icon: L.mapbox.marker.icon({
+        'marker-size': 'large',
+        'marker-symbol': 'dog-park',
+        'marker-color': '#fa0'
+      })
+    }).addTo(map);
   });
