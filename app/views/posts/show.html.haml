@@ -1,0 +1,30 @@
+.container
+  %p#notice
+    = notice
+
+  .panel.panel-default
+    .panel-body
+      .title
+        - if @post.state == 'lost'
+          %h1.center-text Perdido
+        - elsif @post.state == 'found'
+          %h1.text-center Encontrado
+        - elsif @post.state == 'adoption'
+          %h1 En Adopción
+
+        = render partial: "action_links"
+        %hr
+
+      .row
+        .col-md-4
+          = render partial: "photo"
+        .col-md-6.col-md-offset-1
+          = render partial: "description"
+
+      %br
+
+      .row
+        .col-md-4
+          = render partial: "contact_info"
+        .col-md-6.col-md-offset-1{ style: "padding-bottom: 50px;" }
+          = render partial: "map"

@@ -1,0 +1,33 @@
+#map.dark
+
+:javascript
+  $(document).ready(function(){
+    $("#map").css("height", '400')
+
+    L.mapbox.accessToken = 'pk.eyJ1IjoiZWxmZW5hcnMiLCJhIjoiMDF0YWlnTSJ9.YdLNTRDq9kBXFbxvQrkxaw';
+    var map = L.mapbox.map('map', 'elfenars.kn4ob5e9')
+      .setView(["#{@post.latitude}", "#{@post.longitude}"], 15);
+
+    // var geojson = getGeocode("#{@post.id}");
+    var geojson = {
+      "type": "Feature",
+      "geometry": {
+      "type": "Point",
+      "coordinates": [
+      -33.4464435,
+      -70.59737729999999
+      ]
+      },
+      "properties": {
+      "title": "Encontrado",
+      "description": "Holanda 3019, Ñuñoa, Santiago",
+      "marker-color": "#00607d",
+      "marker-symbol": "circle",
+      "marker-size": "medium"
+      }
+      }
+
+    L.geoJson(geojson,{
+      pointToLayer: L.mapbox.marker.style,
+    });
+  });

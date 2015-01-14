@@ -1,0 +1,4 @@
+- if @post.image.blank?
+  = image_tag "http://placehold.it/317x317", class: "img-responsive img-thumbnail"
+- else
+  = image_tag @post.image.url, class: "img-responsive img-thumbnail"
