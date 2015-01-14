@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'rails_12factor'
 gem 'fog'
 gem 'cloudinary'
+gem 'geocoder'
 
 # Auth
 gem 'devise'

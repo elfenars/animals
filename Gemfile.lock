@@ -141,6 +141,7 @@ GEM
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
     formatador (0.2.5)
+    geocoder (1.2.6)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -266,6 +267,7 @@ DEPENDENCIES
   devise
   devise-i18n
   fog
+  geocoder
   haml-rails
   high_voltage (~> 2.2.1)
   jbuilder (~> 2.0)
