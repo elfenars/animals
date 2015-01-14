@@ -18,18 +18,6 @@ class PostsController < ApplicationController
   def edit
   end
 
-  def encontrados
-    @encontrados = Post.found.page(params[:page]).order(created_at: :desc)
-  end
-
-  def perdidos
-    @perdidos = Post.lost.page(params[:page]).order(created_at: :desc)
-  end
-
-  def adopcion
-    @adopcion = Post.adoption.page(params[:page]).order(created_at: :desc)
-  end
-
   def create
     @post = current_user.posts.new(post_params)
       if @post.save
@@ -57,6 +45,18 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def encontrados
+    @encontrados = Post.found.page(params[:page]).order(created_at: :desc)
+  end
+
+  def perdidos
+    @perdidos = Post.lost.page(params[:page]).order(created_at: :desc)
+  end
+
+  def adopcion
+    @adopcion = Post.adoption.page(params[:page]).order(created_at: :desc)
   end
 
   def geo
