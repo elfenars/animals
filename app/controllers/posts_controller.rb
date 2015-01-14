@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :geolocation]
   before_action :authenticate_user!, only: [:new, :edit]
 
   def index
@@ -57,6 +57,30 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def geo
+    @post = Post.find params[:id]
+
+    @geojson = {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [
+          @post.latitude,
+          @post.longitude
+        ]
+      },
+      properties: {
+        title: @post.title,
+        description: @post.location,
+        :"marker-color" => "#00607d",
+        :"marker-symbol" => "circle",
+        :"marker-size" => "medium"
+      }
+    }.to_json
+
+    render json: @geojson
   end
 
   private
