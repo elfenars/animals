@@ -1,0 +1,23 @@
+%h1 Editing post
+.container
+  .panel.panel-default.col-md-8
+    .panel-body
+      = simple_form_for @post, :defaults => {:required => false}, :html => {:multipart => true} do |f|
+        = f.input :title, label: 'Titulo'
+        .btn-group
+          = f.input :state, as: :radio_buttons, collection: [["Encontrado", "found"], ["Perdido", "lost"], |
+            ["En Adopción", "adoption"]]                                                                   |
+        = f.input :location, label: 'Ubicación'
+        = f.label 'Imagen'
+        = f.file_field :image, class: 'btn btn-default'
+        = f.input :contact, label: 'Contacto'
+        .btn-group
+          = f.input :animal_type, label: "Tipo de mascota", as: :radio_buttons, collection: [["Perrito", "dog"], ["Gatito", "cat"]]
+        = f.input :breed, label: 'Raza'
+        = f.input :age, label: 'Edad aproximada'
+        = f.input :description, label: 'Descripción'
+        = f.input :status, collection: ['Activo', 'Cerrado']
+        = f.button :submit , :value => "Publicar"
+= link_to 'Mostrar', @post
+|
+\#{link_to 'Atrás', posts_path}

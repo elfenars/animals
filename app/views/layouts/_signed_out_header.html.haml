@@ -1,0 +1,21 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %h1.logo= link_to image_tag('http://res.cloudinary.com/dqyonjr6e/image/upload/v1420592569/logo_2x_gu1jun.png'), root_path, class: "logo"
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li= link_to "Encontrados", encontrados_path
+        %li= link_to "Perdidos", perdidos_path
+        %li= link_to "En Adopción", adopcion_path
+      %ul.nav.navbar-nav.navbar-right
+        %li= link_to "Entra", new_user_session_path
+        %li= link_to "Registrate", new_user_registration_path
+    / /.navbar-collapse
+  / /.container-fluid

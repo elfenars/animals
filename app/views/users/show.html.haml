@@ -1,0 +1,25 @@
+.panel.panel-default
+  .panel-heading
+    Los animalitos que tienes publicados
+  .panel-body
+    %table.table.table-hover
+      %thead
+        %tr
+          %th
+            %p Título
+          %th
+            %p Descripción
+          %th
+            %p Acciones
+          %th
+          %th
+      - @user.posts.each do |post|
+        %tbody
+          %tr
+            %th= post.title
+            %td= post.description
+            - if post.user.id == current_user.id
+              %td= link_to "Editar", edit_post_path(post)
+              %td= link_to "Ver", post_path(post)
+              %td= link_to "Borrar", post, method: :delete, data: {confirm: "¿Seguro?"}
+            - else

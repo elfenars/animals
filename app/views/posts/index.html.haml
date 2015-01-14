@@ -1,0 +1,22 @@
+.jumbotron
+  .row
+    .intro
+      .col-md-12
+        %h1 ¡Nos gustan los animales!
+        %p.lead ¿Perdiste tu mascota? ¿Encontraste la mascota de alguien? ¿Quieres dar un animalito en adopción o quieres adoptar?
+        %p.lead ¡Este es tu lugar!
+        = link_to "Publicar", new_post_path, class: "btn btn-primary btn-lg"
+        %hr
+
+.row.ficha
+  .col-sm-6.col-md-4
+    %h2 Encontrados
+    = render partial: "single_post", locals: { posts: @found }
+
+  .col-sm-6.col-md-4
+    %h2 Perdidos
+    = render partial: "single_post", locals: { posts: @lost }
+
+  .col-sm-6.col-md-4
+    %h2 En Adopcion
+    = render partial: "single_post", locals: { posts: @adoption }
