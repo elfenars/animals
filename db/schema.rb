@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150113145200) do
     t.text     "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "tipo"
+    t.string   "state"
     t.string   "image"
     t.integer  "user_id"
     t.string   "status"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 20150113145200) do
     t.string   "animal_type"
     t.string   "breed"
     t.string   "age"
+    t.float    "lat"
+    t.float    "long"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"

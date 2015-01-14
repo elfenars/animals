@@ -10,7 +10,12 @@ namespace :dashboard do
 end
 
   resources :users
-  resources :posts
+
+  resources :posts do
+    member do
+      get 'geo'
+    end
+  end
 
   get 'encontrados' => 'posts#encontrados'
   get 'perdidos' => 'posts#perdidos'

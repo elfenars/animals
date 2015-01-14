@@ -16,12 +16,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'rails_12factor'
 gem 'fog'
 gem 'cloudinary'
+gem 'geocoder'
 
 # Auth
 gem 'devise'
 gem 'devise-i18n'
 
 # Assets
+gem 'haml-rails'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
