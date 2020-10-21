@@ -141,7 +141,7 @@ GEM
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
     formatador (0.2.5)
-    geocoder (1.2.6)
+    geocoder (1.6.1)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
